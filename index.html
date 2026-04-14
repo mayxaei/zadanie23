@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 23</title>
+    <style>
+        body {
+            font-family:Arial, sans-serif;
+            padding:20px;
+        }
+        h1 {
+            text-align:center;
+        }
+        .box {
+            padding:5px;
+            border-radius:8px;
+        }
+        input {
+            margin:5px;
+            padding:5px;
+            border-radius:10px;
+            border:2px solid #4e1212;
+        }
+        button {
+            padding:10px;
+            background:#4e1212;
+            color:white;
+            border:none;
+            cursor:pointer;
+            border-radius:5px;
+        }
+        button:hover {
+            background:#270b0b;
+        }
+        .wynik {
+            margin-top:10px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Zadanie 23 - instrukcje warunkowe</h1>
+    <div class="box">
+        <h3>1. Obliczający wynik równania x = a/b. Wynik wypisuje na ekran. W przypadku, kiedy nie można obliczyć wyniku, wyświetli stosowny komunikat.</h3>
+        <input id="a1" type="number" placeholder="a">
+        <input id="b1" type="number" placeholder="b">
+        <button onclick="zad1()">Oblicz</button>
+        <div id="wynik1" class="wynik"></div>
+    </div>
+    <div class="box">
+        <h3>2. Obliczający wynik równania x = a/b + c/d . Wynik wypisuje na ekran. W przypadku, kiedy nie można obliczyć wyniku, wyświetli stosowny komunikat.</h3>
+        <input id="a2" type="number" placeholder="a">
+        <input id="b2" type="number" placeholder="b">
+        <input id="c2" type="number" placeholder="c">
+        <input id="d2" type="number" placeholder="d">
+        <button onclick="zad2()">Oblicz</button>
+        <div id="wynik2" class="wynik"></div>
+    </div>
+    <div class="box">
+        <h3>3. Obliczający wynik równania x = (a+6) / (b – 4). Wynik wypisuje na ekran. W przypadku, kiedy nie można obliczyć wyniku, wyświetli stosowny komunikat.</h3>
+        <input id="a3" type="number" placeholder="a">
+        <input id="b3" type="number" placeholder="b">
+        <button onclick="zad3()">Oblicz</button>
+        <div id="wynik3" class="wynik"></div>
+    </div>
+    <div class="box">
+        <h3>4. Sprawdzający czy wprowadzona liczba jest parzysta. Na ekran wypisuje stosowny komunikat.</h3>
+        <input id="n4" type="number" placeholder="liczba">
+        <button onclick="zad4()">Sprawdź</button>
+        <div id="wynik4" class="wynik"></div>
+    </div>
+    <div class="box">
+        <h3>5. Wczytujący dwie liczby. Sprawdza czy pierwsza jest podzielna przez drugą. Na ekran wypisuje stosowny komunikat.</h3>
+        <input id="a5" type="number" placeholder="liczba 1">
+        <input id="b5" type="number" placeholder="liczba 2">
+        <button onclick="zad5()">Sprawdź</button>
+        <div id="wynik5" class="wynik"></div>
+    </div>
+    <div class="box">
+        <h3>6. Sprawdzający czy wprowadzona liczba jest dodatnia, ujemna czy równa 0. Na ekran wypisuje stosowny komunikat.</h3>
+        <input id="n6" type="number" placeholder="liczba">
+        <button onclick="zad6()">Sprawdź</button>
+        <div id="wynik6" class="wynik"></div>
+    </div>
+    <div class="box">
+        <h3>7. Wypisujący na ekran największą spośród trzech wprowadzonych liczb.</h3>
+        <input id="a7" type="number" placeholder="liczba 1">
+        <input id="b7" type="number" placeholder="liczba 2">
+        <input id="c7" type="number" placeholder="liczba 3">
+        <button onclick="zad7()">Sprawdź</button>
+        <div id="wynik7" class="wynik"></div>
+    </div>
+    <div class="box">
+        <h3>8. Wypisujący trzy wprowadzone liczby w kolejności rosnącej.</h3>
+        <input id="a8" type="number" placeholder="liczba 1">
+        <input id="b8" type="number" placeholder="liczba 2">
+        <input id="c8" type="number" placeholder="liczba 3">
+        <button onclick="zad8()">Sortuj</button>
+        <div id="wynik8" class="wynik"></div>
+    </div>
+    <script>
+        function zad1() {
+            let a = a1.value, b = b1.value;
+            if (b === 0) {
+                wynik1.innerText = "Nie można dzielić przez 0";
+            } else {
+                wynik1.innerText = a / b;
+            }
+        }
+    
+        function zad2() {
+            let a = a2.value, b = b2.value, c = c2.value, d = d2.value;
+            if (b === 0 || d === 0) {
+                wynik2.innerText = "Nie można dzielić przez 0";
+            } else {
+                wynik2.innerText = a / b + c / d;
+            }
+        }
+    
+        function zad3() {
+            let a = a3.value, b = b3.value;
+            if (b - 4 === 0) {
+                wynik3.innerText = "Nie można dzielić przez 0";
+            } else {
+                wynik3.innerText = (a + 6) / (b - 4);
+            }
+        }
+    
+        function zad4() {
+            let n = n4.value;
+            if (n % 2 === 0) {
+                wynik4.innerText = "Liczba jest parzysta"
+            } else {
+                wynik4.innerText = "Liczba jest nieparzysta"
+            }
+        }
+        
+        function zad5() {
+            let a = a5.value, b = b5.value;
+            if (b === 0) {
+                wynik5.innerText = "Nie można dzielić przez 0";
+            } else if (a % b === 0) {
+                wynik5.innerText = "Liczba pierwsza jest podzielna przez drugą"
+            } else {
+                wynik5.innerText = "Liczba pierwsza nie jest podzielna przez drugą"
+            }
+            }
+        
+        function zad6() {
+            let n = n6.value;
+            if (n > 0) {
+                wynik6.innerText = "Wprowadzona liczba jest dodatnia";
+            } else if (n < 0) {
+                wynik6.innerText = "Wprowadzona liczba jest ujemna";
+            } else {
+                wynik6.innerText = "Wprowadzoną liczbą jest zero";
+            }
+        }
+        
+        function zad7() {
+            let a = a7.value, b = b7.value, c = c7.value;
+            wynik7.innerText = Math.max(a, b, c);
+        }
+        
+        function zad8() {
+            let a = a8.value;
+            let b = b8.value;
+            let c = c8.value;
+            let arr = [val1, val2, val3];
+            arr.sort(function(x, y) {
+                return x - y;
+            });
+            wynik8.innerText = arr.join(", ");
+        }
+    </script>
+</body>
+</html>
